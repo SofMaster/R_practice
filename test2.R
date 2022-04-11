@@ -165,4 +165,20 @@ arr2
 dim(arr2)
 
 #-----------------------------
-# list : 서로 다른 타입의 데이터 자료구조 
+# list : 서로 다른 타입의 데이터 자료구조. (키, 값) 형태의 데이터를 담는 연관배열
+li <- list("1", "홍길동", 22,"2", "고길동", 32 )
+li
+unli <- unlist(li)
+unli
+
+num <- list(c(1:5),c(6:10),c("a","b","c"))
+num
+num[1]
+typeof(num[1])
+num[[1]]
+typeof(num[[1]])
+
+num2 <- list(x=1:5, y=6:10)
+num2
+num2$x
+num2$y
