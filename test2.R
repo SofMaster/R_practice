@@ -1,0 +1,168 @@
+# R의 자료 구조(객체 타입)
+# Vector, Matrix, Array, List, DataFrame
+
+#1. vector : 1차원 배열 형태의 자료구조
+year <- 2022
+is(year)
+year <- "2022"
+is(year)
+typeof(year)
+year[1]
+
+is.vector(year)
+
+# 벡터 수열
+# seq(from, to, by)   seq(start, stop, step)
+seq(1, 5)
+1:5
+seq(1, 10, 2)
+seq(1, 10, length.out = 4)
+
+rep(1:3, 3)
+rep(seq(1, 3), 3)
+rep(1:3, each = 3)
+rep(1:2, each = 5, times = 2)
+
+c(1,2,5,-3,-10, 10:15) #combine 함수 : 여러개의 값
+aa <- c(1:10)
+aa
+
+c(22, -5.7, '문자열')
+c(22, -5.7)
+is(c)
+c(1, 2.5, T, F)
+age <- c(10, 20, 30)
+age
+age[1]
+age[3]
+age[4]
+age <- c(age,40)
+age
+age[10] <- 50
+age
+age <- append(age, 60, after = 6)   #6번째 뒤에 6을 채운다.
+age <- NULL
+age
+
+v1 <- c(13, -5, 20:23, 12, -2:3)
+v1
+v1[1] 
+v1[c(2,4)]  # c[2] ~ c[4]
+v1[c(2,4,4:7)]
+v1[-c(2,3)]     # -는 제외하고 출력(여집합)
+# v1[1,2] Error in v1[1, 2] : incorrect number of dimensions
+13 %in% v1    #vector에 포함된 값 유무 확인
+11 %in% v1
+
+nrow(v1)  # 건수 확인 : 행렬만 가능
+NROW(v1)  # 건수 확인 : 행렬, vector 가능
+
+a <- 1:3
+b <- 4:6
+a
+b
+a + b
+a * b
+a / b
+a + 10
+a[4] <- 2
+union(a, b)   # vector 결합 : 합집합, 중복 X
+c(a,b)        # vector 결합 : 합집합, 중복 O 
+setdiff(a, b) # 차집합
+b[4] <- 2
+intersect(a, b) # 교집합
+
+
+# -------------------------------------------
+# matrix : 2차원 배열, 행렬 구조. 현대 수학에서는 ㅐ행렬이 대세 
+a <- 1:8
+dim(a) <- c(2,4)
+a
+dim(a)  # 구조 확인
+is(a)
+class(a)
+mode(a)
+
+m <- matrix(1:5)
+dim(m)
+
+m <- ㅡmatrix(1:9,, nrow = 3)
+m
+dim(m)
+m <- ㅡmatrix(1:9,, nrow = 3)
+m
+dim(m)
+m <- matrix(1:9, nrow = 3, byrow = T)
+m
+dim(m)
+
+m <- matrix(1:10, 2)
+m
+m[1,]
+m[ ,3]
+m[2, 3]
+m[1, c(2:4)]
+m[1:2, c(2:4)]
+m[-1, ]
+m[ ,-3]
+m[-1,-1]
+
+a <-  matrix(c(1:9), nrow =3,ncol=3)
+rownames(a) <- c('r1','r2','r3')
+colnames(a) <- c('one', 'two', 'three')
+
+a
+a['r1']
+ncol(a)
+nrow(a)
+
+a <-  matrix(c(1,2,3,4),2,2)
+a
+b <- matrix(5:8,2)
+b
+
+a + b
+a * b
+a %*% b     # 행렬곱 내적
+
+diag(a)   # 주대각 요호
+a
+t(a)  #전치치
+
+x1 <- c(5,40, 50:52)
+x1
+x2 <- c(30, 5, 6:8)
+rbind(x1, x2)
+cbind(x1, x2)
+
+# 함수를 실행하는 함수
+apply() # lapply(), sapply(), tapply()
+x <- matrix(1:9, 3)
+x
+apply(x, 1, max)  # 1 : 행기준
+apply(x, 2, max)  # 2 : 열기준
+apply(x, 2, mean)
+func <- function(x){
+  x + c(5, 10, 15)
+}
+
+apply(x, 1, func) # 사용자정의 함수 실행
+
+head(iris, 2)
+apply(iris[, 1:4],2, mean)
+
+#-----------------------------
+# array : 다차원 배열 - 행, 열, 면을 갖는 3차원 자료구조를 취할 수 있다.
+d <- c(1:12)
+is(d)
+arr1 <- array(d)
+arr1
+dim(arr1)
+is(arr1)
+
+arr2 <- array(1:12, dim = c(3, 2, 2))
+arr2
+dim(arr2)
+
+#-----------------------------
+# list : 서로 다른 타입의 데이터 자료구조 
