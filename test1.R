@@ -94,3 +94,21 @@ remove.packages("plyr")
 
 # 기본 dataset : 연습용 dataset이 제공
 data()
+
+head(Nile)
+tail(Nile, 3)
+
+hist(Nile, freq = F)
+lines(density(Nile))
+
+help("hist")
+? hist
+
+? mean
+x <- c(0:10, 50)
+xm <- mean(x)
+c(xm, mean(x, trim = 0.10))
+
+getwd()
+
+head(iris, 3)
