@@ -76,3 +76,21 @@ ls.str()
 rm(aa)  # 변수 삭제
 rm(list=ls()) # 모든 변수 삭제
 gc()  #사용이 종료된 객체가 점유하고있던 메모리 해제
+
+
+
+
+# ------------------
+# package : 데이터 + 함수 + 알고리즘 꾸러미
+available.packages()
+dim(available.packages())
+
+install.packages("plyr")
+library(plyr)
+ls("package:plyr")
+data(package="plyr")
+baseball
+remove.packages("plyr")
+
+# 기본 dataset : 연습용 dataset이 제공
+data()
