@@ -90,3 +90,17 @@ irdata$points3d(ir.versicolor$Petal.Length, ir.versicolor$Sepal.Length,
                 ir.versicolor$Sepal.Width, bg='yellow', pch=25)
 
 # ggplot2 package : 그래프 기능이 확장된 package(library)
+library(ggplot2)
+head(mpg, 3)
+ggplot(data = mpg, aes(x = displ))
+ggplot(data = mpg, aes(x = displ, y = hwy)) + geom_point()
+ggplot(data = mpg, aes(x = displ, y = hwy)) + geom_point() + xlim(3,6) + ylim(10, 30)
+
+install.packages("dplyr")
+library(dplyr)
+df_mpg <- mpg %>% group_by(drv) %>% summarise(mean_hwy = mean(hwy))
+df_mpg
+
+ggplot(data = df_mpg, aes(x = drv, y = mean_hwy)) + geom_col()
+
+ggplot(data = mpg, aes(x = drv, y = hwy)) + geom_boxplot()
