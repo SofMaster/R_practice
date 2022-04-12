@@ -47,7 +47,7 @@ subset(mdf, c1 == 2)
 
 mdf[mdf$c1 == 2 & mdf$c2 == 5, ]
 subset(mdf, c1 == 2 & c2 == 5)
-
+? subset
 mdf[mdf$c1 == 2, c(1, 2)]
 subset(mdf, c1 == 2, select = c(1,2))
 # subset(mdf, select = c(2))
