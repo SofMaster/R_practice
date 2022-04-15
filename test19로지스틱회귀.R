@@ -11,7 +11,7 @@ mydata <- read.csv("testdata/binary.csv")
 head(mydata, 3)
 str(mydata)
 
-# 독립변수 : gre gpa rank (연속형), 종속변수 : admit(범주형)
+# 독립변수 : gre(시험성적) gpa(내신성적) rank (순위:연속형), 종속변수 : admit(범주형)
 summary(mydata)  # 데이터의 분포 확인
 
 # admit, rank 변수로 빈도표
