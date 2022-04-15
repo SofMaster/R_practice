@@ -81,4 +81,8 @@ auc <- performance(pr, measure = 'auc')
 auc <- auc@y.values
 auc[[1]]  # 0.8918495  # good 모델
 
-
+# 새 값으로 예측
+new_data <- train[c(1:3), ]
+new_data <- edit(new_data)
+new_pred <- predict(weather_model, newdata = new_data, type = 'response')
+ifelse(new_pred > 0.5, '비옴', '비안옴')
